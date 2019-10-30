@@ -7,7 +7,6 @@
 //
 
 #include "LinearFeedBackShiftRegisterGenerator.hpp"
-#include "math.h"
 
 #pragma mark - Init
 
@@ -24,18 +23,3 @@ void LinearFeedBackShiftRegisterGenerator::generateValue(bool *bitArray, int N)
         bitArray[i] = linearRegister.generateBit();
     }
 }
-
-#pragma mark - Helpers
-
-//long LinearFeedBackShiftRegisterGenerator::convertToDecimal(char *binaryValuesArray)
-//{
-//    long sum = 0;
-//    for (int i = 0; i < WordSize; i++)
-//    {
-//        if (binaryValuesArray[i] == '1')
-//        {
-//            sum += pow(2, WordSize - 1 - i);
-//        }
-//    }
-//    return sum;
-//}

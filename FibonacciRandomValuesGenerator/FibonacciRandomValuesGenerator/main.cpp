@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include "LinearFeedBackShiftRegisterGenerator.hpp"
+#include "NumbersTranslator.hpp"
 
 #define WordSize 32
 
@@ -24,6 +25,13 @@ int main(int argc, const char * argv[]) {
     bool *bitArray = new bool[WordSize];
     generator.generateValue(bitArray, WordSize);
     
+    printBitArray(bitArray, WordSize);
+    
+    NumbersTranslator translator(WordSize);
+    int value = translator.decimalValueFromBitArray(bitArray, WordSize);
+    cout << value << endl;
+    
+    translator.bitArrayFromDecimalValue(1457544521, bitArray, WordSize);
     printBitArray(bitArray, WordSize);
     
     return 0;
