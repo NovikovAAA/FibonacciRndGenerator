@@ -14,15 +14,13 @@
 
 class LinearFeedBackShiftRegisterGenerator {
 private:
-    LinearFeedackShiftRegister *linearRegister;
+    LinearFeedackShiftRegister linearRegister;
     
-    int convertToDecimal();
-    
+    long convertToDecimal(char *resultArray);
 public:
-    LinearFeedBackShiftRegisterGenerator();
-    LinearFeedBackShiftRegisterGenerator(int initialRegisterValues[], int polynomial[], int size);
+    LinearFeedBackShiftRegisterGenerator(int key, int polynomial[], int size, int polySize);
     
-    int generateValue();
+    void generateValue(bool *bitArray, int N);
 };
 
 #endif /* LinearFeedBackShiftRegisterGenerator_hpp */

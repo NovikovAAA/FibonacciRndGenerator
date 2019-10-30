@@ -15,13 +15,18 @@ class LinearFeedackShiftRegister
 {
 private:
     int size;
+    int polinomialSize;
+    int keySize;
     
-    int *registerValue;
     int *polynomial;
     
 public:
+    int key;
+    
     LinearFeedackShiftRegister();
-    LinearFeedackShiftRegister(int initialRegisterValues[], int polynomial[], int size);
+    LinearFeedackShiftRegister(int key, int polynomial[], int size, int polySize);
+    
+    bool generateBit();
 };
 
 #endif /* LineaFeedackShiftRegister_hpp */

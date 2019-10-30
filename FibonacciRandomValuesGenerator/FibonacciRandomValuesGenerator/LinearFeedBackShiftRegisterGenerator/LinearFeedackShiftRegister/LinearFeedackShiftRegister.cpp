@@ -15,22 +15,46 @@ using namespace std;
 
 LinearFeedackShiftRegister::LinearFeedackShiftRegister()
 {
-    this->size = 4;
-    
-    this->registerValue = new int[4];
-    for (int i = 0; i < size; i++)
-    {
-        this->registerValue[i] = 1;
-    }
+    this->size = 17;
+    this->polinomialSize = 2;
     
     this->polynomial = new int[2];
     this->polynomial[0] = 4;
     this->polynomial[1] = 3;
+    
+    this->key = 49148;
+    this->keySize = sizeof(this->key);
 }
 
-LinearFeedackShiftRegister::LinearFeedackShiftRegister(int *initialRegisterValue, int *polynomial, int size)
+LinearFeedackShiftRegister::LinearFeedackShiftRegister(int key, int *polynomial, int size, int polySize)
 {
     this->size = size;
-    this->registerValue = initialRegisterValue;
+    this->polinomialSize = polySize;
+    
     this->polynomial = polynomial;
+    
+    this->key = key;
+    this->keySize = sizeof(this->key) * 8 - 1;
+}
+
+#pragma mark - Register
+
+bool LinearFeedackShiftRegister::generateBit()
+{
+    for (int i = 0; i < keySize + 1 - size; i++) {
+        key &= ~(1 << (keySize - i));
+    }
+    
+    bool value = key & (1 << 0);
+    bool newBit = value;
+    
+    for (int i = 0; i < polinomialSize; i++) {
+        int indexOfBit = polynomial[i] - 1;
+        bool bit = key & (1 << indexOfBit);
+        newBit ^= bit;
+    }
+    key = key >> 1;
+    key = newBit ? key | (1 << (keySize - size + 1)) : key & ~(1 << (keySize - size + 1));
+    
+    return value;
 }

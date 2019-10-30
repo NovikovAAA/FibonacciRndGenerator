@@ -57,7 +57,7 @@
 		66C305D72360E8F0004954AA = {
 			isa = PBXGroup;
 			children = (
-				66C305E22360E8F0004954AA /* lab4 */,
+				66C305E22360E8F0004954AA /* FibonacciRandomValuesGenerator */,
 				66C305E12360E8F0004954AA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,13 +70,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		66C305E22360E8F0004954AA /* lab4 */ = {
+		66C305E22360E8F0004954AA /* FibonacciRandomValuesGenerator */ = {
 			isa = PBXGroup;
 			children = (
 				667B5ED42360F23000304508 /* LinearFeedBackShiftRegisterGenerator */,
 				66C305E32360E8F0004954AA /* main.cpp */,
 			);
-			path = lab4;
+			path = FibonacciRandomValuesGenerator;
 			sourceTree = "<group>";
 		};
 		66C305EA2360E8F9004954AA /* LinearFeedackShiftRegister */ = {

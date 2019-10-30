@@ -7,29 +7,35 @@
 //
 
 #include "LinearFeedBackShiftRegisterGenerator.hpp"
+#include "math.h"
 
 #pragma mark - Init
 
-LinearFeedBackShiftRegisterGenerator::LinearFeedBackShiftRegisterGenerator()
+LinearFeedBackShiftRegisterGenerator::LinearFeedBackShiftRegisterGenerator(int key, int *polynomial, int size, int polySize) : linearRegister(key, polynomial, size, polySize)
 {
-    this->linearRegister = new LinearFeedackShiftRegister();
-}
-
-LinearFeedBackShiftRegisterGenerator::LinearFeedBackShiftRegisterGenerator(int *initialRegisterValues, int *polynomial, int size)
-{
-    this->linearRegister = new LinearFeedackShiftRegister(initialRegisterValues, polynomial, size);
 }
 
 #pragma mark - Generator
 
-int LinearFeedBackShiftRegisterGenerator::generateValue()
+void LinearFeedBackShiftRegisterGenerator::generateValue(bool *bitArray, int N)
 {
-    return 0;
+    for (int i = 0; i < N; i++)
+    {
+        bitArray[i] = linearRegister.generateBit();
+    }
 }
 
 #pragma mark - Helpers
 
-int LinearFeedBackShiftRegisterGenerator::convertToDecimal()
-{
-    return 0;
-}
+//long LinearFeedBackShiftRegisterGenerator::convertToDecimal(char *binaryValuesArray)
+//{
+//    long sum = 0;
+//    for (int i = 0; i < WordSize; i++)
+//    {
+//        if (binaryValuesArray[i] == '1')
+//        {
+//            sum += pow(2, WordSize - 1 - i);
+//        }
+//    }
+//    return sum;
+//}
