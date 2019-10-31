@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6651363C236A3EAF004F1504 /* NumbersTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6651363A236A3EAF004F1504 /* NumbersTranslator.cpp */; };
+		66513640236A47A6004F1504 /* FibonacciGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6651363E236A47A6004F1504 /* FibonacciGenerator.cpp */; };
 		667B5ED72360F26200304508 /* LinearFeedBackShiftRegisterGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 667B5ED52360F26200304508 /* LinearFeedBackShiftRegisterGenerator.cpp */; };
 		66C305E42360E8F0004954AA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66C305E32360E8F0004954AA /* main.cpp */; };
 		66C305ED2360E947004954AA /* LinearFeedackShiftRegister.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66C305EB2360E947004954AA /* LinearFeedackShiftRegister.cpp */; };
@@ -28,6 +29,8 @@
 /* Begin PBXFileReference section */
 		6651363A236A3EAF004F1504 /* NumbersTranslator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NumbersTranslator.cpp; sourceTree = "<group>"; };
 		6651363B236A3EAF004F1504 /* NumbersTranslator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NumbersTranslator.hpp; sourceTree = "<group>"; };
+		6651363E236A47A6004F1504 /* FibonacciGenerator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FibonacciGenerator.cpp; sourceTree = "<group>"; };
+		6651363F236A47A6004F1504 /* FibonacciGenerator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FibonacciGenerator.hpp; sourceTree = "<group>"; };
 		667B5ED52360F26200304508 /* LinearFeedBackShiftRegisterGenerator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LinearFeedBackShiftRegisterGenerator.cpp; sourceTree = "<group>"; };
 		667B5ED62360F26200304508 /* LinearFeedBackShiftRegisterGenerator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LinearFeedBackShiftRegisterGenerator.hpp; sourceTree = "<group>"; };
 		66C305E02360E8F0004954AA /* FibonacciRandomValuesGenerator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FibonacciRandomValuesGenerator; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +57,15 @@
 				6651363B236A3EAF004F1504 /* NumbersTranslator.hpp */,
 			);
 			path = NumbersTranslator;
+			sourceTree = "<group>";
+		};
+		6651363D236A477D004F1504 /* FibonacciGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				6651363E236A47A6004F1504 /* FibonacciGenerator.cpp */,
+				6651363F236A47A6004F1504 /* FibonacciGenerator.hpp */,
+			);
+			path = FibonacciGenerator;
 			sourceTree = "<group>";
 		};
 		667B5ED42360F23000304508 /* LinearFeedBackShiftRegisterGenerator */ = {
@@ -85,6 +97,7 @@
 		66C305E22360E8F0004954AA /* FibonacciRandomValuesGenerator */ = {
 			isa = PBXGroup;
 			children = (
+				6651363D236A477D004F1504 /* FibonacciGenerator */,
 				66513639236A3E93004F1504 /* NumbersTranslator */,
 				667B5ED42360F23000304508 /* LinearFeedBackShiftRegisterGenerator */,
 				66C305E32360E8F0004954AA /* main.cpp */,
@@ -158,6 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66513640236A47A6004F1504 /* FibonacciGenerator.cpp in Sources */,
 				6651363C236A3EAF004F1504 /* NumbersTranslator.cpp in Sources */,
 				66C305E42360E8F0004954AA /* main.cpp in Sources */,
 				667B5ED72360F26200304508 /* LinearFeedBackShiftRegisterGenerator.cpp in Sources */,

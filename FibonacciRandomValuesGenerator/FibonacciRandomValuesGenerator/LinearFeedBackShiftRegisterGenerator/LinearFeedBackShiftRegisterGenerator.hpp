@@ -12,7 +12,8 @@
 #include <stdio.h>
 #include "LinearFeedackShiftRegister.hpp"
 
-class LinearFeedBackShiftRegisterGenerator {
+class LinearFeedBackShiftRegisterGenerator
+{
 private:
     LinearFeedackShiftRegister linearRegister;
     

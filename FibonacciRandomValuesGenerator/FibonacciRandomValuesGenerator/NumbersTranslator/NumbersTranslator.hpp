@@ -12,13 +12,14 @@
 #include <stdio.h>
 #include "math.h"
 
-class NumbersTranslator {
+class NumbersTranslator
+{
 public:
     NumbersTranslator();
     NumbersTranslator(int wordSize);
     
-    int decimalValueFromBitArray(bool *bitArray, int size);
-    void bitArrayFromDecimalValue(int value, bool *bitArray, int size);
+    unsigned int decimalValueFromBitArray(bool *bitArray, int size);
+    void bitArrayFromDecimalValue(unsigned int value, bool *bitArray, int size);
     
 private:
     int wordSize;

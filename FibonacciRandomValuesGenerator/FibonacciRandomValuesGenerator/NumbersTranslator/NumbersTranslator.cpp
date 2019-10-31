@@ -18,9 +18,9 @@ NumbersTranslator::NumbersTranslator(int wordSize)
     this->wordSize = wordSize;
 }
 
-int NumbersTranslator::decimalValueFromBitArray(bool *bitArray, int size)
+unsigned int NumbersTranslator::decimalValueFromBitArray(bool *bitArray, int size)
 {
-    int value = 0;
+    unsigned int value = 0;
     for (int i = 0; i < size; i++)
     {
         if (bitArray[i])
@@ -31,7 +31,7 @@ int NumbersTranslator::decimalValueFromBitArray(bool *bitArray, int size)
     return value;
 }
 
-void NumbersTranslator::bitArrayFromDecimalValue(int value, bool *bitArray, int size)
+void NumbersTranslator::bitArrayFromDecimalValue(unsigned int value, bool *bitArray, int size)
 {
     int counter = 0;
     
