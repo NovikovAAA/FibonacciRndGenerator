@@ -12,6 +12,7 @@
 		667B5ED72360F26200304508 /* LinearFeedBackShiftRegisterGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 667B5ED52360F26200304508 /* LinearFeedBackShiftRegisterGenerator.cpp */; };
 		66C305E42360E8F0004954AA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66C305E32360E8F0004954AA /* main.cpp */; };
 		66C305ED2360E947004954AA /* LinearFeedackShiftRegister.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66C305EB2360E947004954AA /* LinearFeedackShiftRegister.cpp */; };
+		66D92D2C236DF2D90027A2FC /* Gamma.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D92D2A236DF2D90027A2FC /* Gamma.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,8 @@
 		66C305E32360E8F0004954AA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		66C305EB2360E947004954AA /* LinearFeedackShiftRegister.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LinearFeedackShiftRegister.cpp; sourceTree = "<group>"; };
 		66C305EC2360E947004954AA /* LinearFeedackShiftRegister.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LinearFeedackShiftRegister.hpp; sourceTree = "<group>"; };
+		66D92D2A236DF2D90027A2FC /* Gamma.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Gamma.cpp; sourceTree = "<group>"; };
+		66D92D2B236DF2D90027A2FC /* Gamma.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Gamma.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,7 @@
 		66C305E22360E8F0004954AA /* FibonacciRandomValuesGenerator */ = {
 			isa = PBXGroup;
 			children = (
+				66D92D29236DF2C10027A2FC /* Gamma */,
 				6651363D236A477D004F1504 /* FibonacciGenerator */,
 				66513639236A3E93004F1504 /* NumbersTranslator */,
 				667B5ED42360F23000304508 /* LinearFeedBackShiftRegisterGenerator */,
@@ -112,6 +116,15 @@
 				66C305EC2360E947004954AA /* LinearFeedackShiftRegister.hpp */,
 			);
 			path = LinearFeedackShiftRegister;
+			sourceTree = "<group>";
+		};
+		66D92D29236DF2C10027A2FC /* Gamma */ = {
+			isa = PBXGroup;
+			children = (
+				66D92D2A236DF2D90027A2FC /* Gamma.cpp */,
+				66D92D2B236DF2D90027A2FC /* Gamma.hpp */,
+			);
+			path = Gamma;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +189,7 @@
 				66C305E42360E8F0004954AA /* main.cpp in Sources */,
 				667B5ED72360F26200304508 /* LinearFeedBackShiftRegisterGenerator.cpp in Sources */,
 				66C305ED2360E947004954AA /* LinearFeedackShiftRegister.cpp in Sources */,
+				66D92D2C236DF2D90027A2FC /* Gamma.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

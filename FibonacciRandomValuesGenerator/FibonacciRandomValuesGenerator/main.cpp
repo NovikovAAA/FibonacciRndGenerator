@@ -10,53 +10,64 @@
 #include "LinearFeedBackShiftRegisterGenerator.hpp"
 #include "FibonacciGenerator.hpp"
 #include "NumbersTranslator.hpp"
+#include "Gamma.hpp"
 
 #define WordSize 32
+#define DivisionValue 100000000000.0
 
 using namespace std;
 
-void printBitArray(bool *bitArray, int size);
+#pragma mark - Helpers
 
-int main(int argc, const char * argv[])
+double* generateInputValuesForFibonacciGenerator(int countOfInputValues, int seed)
 {
     bool *bitArray = new bool[WordSize];
     int polynomial[3] = {17, 14}; //x^17+x^14+1
     
-    LinearFeedBackShiftRegisterGenerator generator(1898, polynomial, 17, 2);
+    LinearFeedBackShiftRegisterGenerator generator(seed, polynomial, 17, 2, false);
     NumbersTranslator translator(WordSize);
-    
-    int lagA = 17;
-    int lagB = 5;
-    int countOfInputValues = max(lagA, lagB);
     
     double *inputValues = new double[countOfInputValues];
     for (int i = 0; i < countOfInputValues; i++)
     {
         generator.generateValue(bitArray, WordSize);
-        printBitArray(bitArray, WordSize);
+        //printBitArray(bitArray, WordSize);
+        
         double value = translator.decimalValueFromBitArray(bitArray, WordSize);
-        cout << (unsigned int)value << endl;
-        inputValues[i] = value / 10000000000.00;
+        //cout << (unsigned int)value << endl;
+        inputValues[i] = value / DivisionValue;
     }
-    cout << "--------------------------------" << endl;
-    FibonacciGenerator fibonacciGenerator(lagA, lagB, inputValues, countOfInputValues);
-    cout << "--------------------------------" << endl;
-    cout << "Generated values" << endl;
-    cout << "--------------------------------" << endl;
-    
-    for (int i = 0; i < 244; i++)
-    {
-        cout << fibonacciGenerator.generateValue() << endl;
-    }
-    
-    return 0;
+    return inputValues;
 }
 
-#pragma mark - Helpers
+FibonacciGenerator createFibonacciGenerator(int lagA, int lagB, int seed)
+{
+    int countOfInputValues = max(lagA, lagB);
+    double *inputValues = generateInputValuesForFibonacciGenerator(countOfInputValues, seed);
+    
+    FibonacciGenerator fibonacciGenerator(lagA, lagB, inputValues, countOfInputValues);
+    return fibonacciGenerator;
+}
 
-void printBitArray(bool *bitArray, int size) {
-    for (int i = 0; i < size; i++) {
-        cout << bitArray[i];
-    }
-    cout << endl;
+#pragma mark - Main
+
+int main(int argc, const char * argv[])
+{
+    string inputText = "";
+    cout << "Введите шифруемую информацию:" << endl;
+    getline(cin, inputText);
+    
+    FibonacciGenerator fibonacciGenerator(createFibonacciGenerator(17, 5, 1898));
+    
+    Gamma gamma(fibonacciGenerator, DivisionValue, false);
+    string resultString = gamma.textGama(inputText);
+    cout << "Crypted " << resultString << endl;
+    
+    FibonacciGenerator fibonacciGeneratorDecrypt(createFibonacciGenerator(17, 5, 1898));
+    Gamma gammaDecrypt(fibonacciGeneratorDecrypt, DivisionValue, false);
+    
+    cout << endl << endl;
+    cout << "Decrypted " << gammaDecrypt.textGama(resultString) << endl;
+    
+    return 0;
 }

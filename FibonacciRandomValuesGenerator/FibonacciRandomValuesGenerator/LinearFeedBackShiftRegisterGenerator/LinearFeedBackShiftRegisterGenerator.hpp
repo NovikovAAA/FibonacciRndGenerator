@@ -16,11 +16,13 @@ class LinearFeedBackShiftRegisterGenerator
 {
 private:
     LinearFeedackShiftRegister linearRegister;
+    NumbersTranslator numbersTranslator;
     
     long convertToDecimal(char *resultArray);
 public:
-    LinearFeedBackShiftRegisterGenerator(int key, int polynomial[], int size, int polySize);
+    bool isDebug;
     
+    LinearFeedBackShiftRegisterGenerator(int key, int polynomial[], int size, int polySize, bool isDebug);
     void generateValue(bool *bitArray, int N);
 };
 

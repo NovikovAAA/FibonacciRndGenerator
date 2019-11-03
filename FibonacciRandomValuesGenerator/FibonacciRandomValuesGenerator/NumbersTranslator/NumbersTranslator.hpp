@@ -20,6 +20,7 @@ public:
     
     unsigned int decimalValueFromBitArray(bool *bitArray, int size);
     void bitArrayFromDecimalValue(unsigned int value, bool *bitArray, int size);
+    void printBitArray(bool *bitArray, int size);
     
 private:
     int wordSize;

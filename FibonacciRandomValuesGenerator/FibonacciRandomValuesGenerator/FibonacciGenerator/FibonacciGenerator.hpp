@@ -15,10 +15,9 @@ class FibonacciGenerator
 {
 public:
     FibonacciGenerator();
+    FibonacciGenerator(const FibonacciGenerator &obj);
     FibonacciGenerator(int lagA, int lagB, double *startValues, int size);
     
-    double generateValue();
-private:
     int lagA;
     int lagB;
     
@@ -27,6 +26,8 @@ private:
     
     int currentK;
     
+    double generateValue();
+private:
     int indexOfElem(int firstValue, int secondValue);
     void addNewElemToSequence(double elem);
 };

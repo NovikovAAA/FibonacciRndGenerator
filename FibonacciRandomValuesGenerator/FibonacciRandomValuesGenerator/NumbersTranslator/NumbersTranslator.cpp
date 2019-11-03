@@ -7,6 +7,9 @@
 //
 
 #include "NumbersTranslator.hpp"
+#include <iostream>
+
+using namespace std;
 
 NumbersTranslator::NumbersTranslator()
 {
@@ -52,4 +55,12 @@ void NumbersTranslator::bitArrayFromDecimalValue(unsigned int value, bool *bitAr
     {
         bitArray[i] = tempBitArray[counter - (i - (wordSize - counter)) - 1];
     }
+}
+
+void NumbersTranslator::printBitArray(bool *bitArray, int size)
+{
+    for (int i = 0; i < size; i++) {
+        cout << bitArray[i];
+    }
+    cout << endl;
 }

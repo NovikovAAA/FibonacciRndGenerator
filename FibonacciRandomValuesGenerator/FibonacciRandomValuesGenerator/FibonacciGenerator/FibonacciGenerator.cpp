@@ -30,6 +30,22 @@ FibonacciGenerator::FibonacciGenerator()
     }
 }
 
+FibonacciGenerator::FibonacciGenerator(const FibonacciGenerator &obj)
+{
+    currentK = obj.currentK;
+    
+    lagA = obj.lagA;
+    lagB = obj.lagB;
+    
+    startValuesSize = obj.startValuesSize;
+    
+    startedValues = new double[startValuesSize];
+    for (int i = 0; i < startValuesSize; i++)
+    {
+        startedValues[i] = obj.startedValues[i];
+    }
+}
+
 FibonacciGenerator::FibonacciGenerator(int lagA, int lagB, double *startValues, int size)
 {
     this->lagA = lagA;
@@ -41,7 +57,7 @@ FibonacciGenerator::FibonacciGenerator(int lagA, int lagB, double *startValues, 
     for (int i = 0; i < size; i++)
     {
         this->startedValues[i] = startValues[i];
-        cout << this->startedValues[i] << endl;
+        //cout << this->startedValues[i] << endl;
     }
 }
 

@@ -9,6 +9,8 @@
 #include "LinearFeedackShiftRegister.hpp"
 #include <iostream>
 
+#define WordSize 32
+
 using namespace std;
 
 #pragma mark - Init
@@ -24,9 +26,12 @@ LinearFeedackShiftRegister::LinearFeedackShiftRegister()
     
     this->key = 49148;
     this->keySize = sizeof(this->key);
+    
+    this->numbersTranslator = NumbersTranslator(WordSize);
+    this->isDebug = false;
 }
 
-LinearFeedackShiftRegister::LinearFeedackShiftRegister(int key, int *polynomial, int size, int polySize)
+LinearFeedackShiftRegister::LinearFeedackShiftRegister(int key, int *polynomial, int size, int polySize, bool isDebug)
 {
     this->size = size;
     this->polinomialSize = polySize;
@@ -35,6 +40,9 @@ LinearFeedackShiftRegister::LinearFeedackShiftRegister(int key, int *polynomial,
     
     this->key = key;
     this->keySize = sizeof(this->key) * 8 - 1;
+    this->isDebug = isDebug;
+    
+    this->numbersTranslator = NumbersTranslator(WordSize);
 }
 
 #pragma mark - Register
@@ -43,6 +51,13 @@ bool LinearFeedackShiftRegister::generateBit()
 {
     for (int i = 0; i < keySize + 1 - size; i++) {
         key &= ~(1 << (keySize - i));
+    }
+    
+    bool *bitsArray = new bool[WordSize];
+    if (isDebug)
+    {
+        numbersTranslator.bitArrayFromDecimalValue(key, bitsArray, WordSize);
+        numbersTranslator.printBitArray(bitsArray, WordSize);
     }
     
     bool value = key & (1 << 0);
@@ -54,7 +69,17 @@ bool LinearFeedackShiftRegister::generateBit()
         newBit ^= bit;
     }
     key = key >> 1;
-    key = newBit ? key | (1 << (keySize - size + 1)) : key & ~(1 << (keySize - size + 1));
+    key = newBit ? key | (1 << (keySize - size + 2)) : key & ~(1 << (keySize - size + 2));
+    
+    if (isDebug)
+    {
+        cout << "After shift:" << endl;
+        numbersTranslator.bitArrayFromDecimalValue(key, bitsArray, WordSize);
+        numbersTranslator.printBitArray(bitsArray, WordSize);
+        cout << "Returned value: " << value << endl << endl;
+    }
     
     return value;
 }
+
+

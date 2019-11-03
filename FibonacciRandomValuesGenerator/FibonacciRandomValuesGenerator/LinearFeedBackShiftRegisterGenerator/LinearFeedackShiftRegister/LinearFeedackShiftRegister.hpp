@@ -10,6 +10,7 @@
 #define LinearFeedackShiftRegister_hpp
 
 #include <stdio.h>
+#include "NumbersTranslator.hpp"
 
 class LinearFeedackShiftRegister
 {
@@ -22,9 +23,12 @@ private:
     
 public:
     int key;
+    bool isDebug;
+    
+    NumbersTranslator numbersTranslator;
     
     LinearFeedackShiftRegister();
-    LinearFeedackShiftRegister(int key, int polynomial[], int size, int polySize);
+    LinearFeedackShiftRegister(int key, int polynomial[], int size, int polySize, bool isDebug);
     
     bool generateBit();
 };
